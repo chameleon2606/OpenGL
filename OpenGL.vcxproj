@@ -95,6 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)include\win32;$(ProjectDir)include\ImGui</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,6 +114,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)include\x64;$(ProjectDir)include\ImGui</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +134,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,12 +154,16 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\x64;$(ProjectDir)include\ImGui</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)libs\x64\glew;$(ProjectDir)libs\x64\glfw</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies);</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -168,8 +175,10 @@
     <ClCompile Include="include\ImGui\imgui_tables.cpp" />
     <ClCompile Include="include\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="OpenGL.cpp" />
+    <ClCompile Include="Repacking.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="level_data.json" />
     <Content Include="libs\x64\glew\glew32.lib" />
     <Content Include="libs\x64\glew\glew32s.lib" />
     <Content Include="libs\x64\glfw\glfw3.dll" />
@@ -208,6 +217,7 @@
     <Content Include="OpenGL\x64\Debug\OpenGL.tlog\unsuccessfulbuild" />
     <Content Include="OpenGL\x64\Debug\vc143.idb" />
     <Content Include="OpenGL\x64\Debug\vc143.pdb" />
+    <Content Include="vcpkg.json" />
     <Content Include="x64\Debug\OpenGL.pdb" />
   </ItemGroup>
   <ItemGroup>
@@ -220,12 +230,15 @@
     <ClInclude Include="include\ImGui\imstb_rectpack.h" />
     <ClInclude Include="include\ImGui\imstb_textedit.h" />
     <ClInclude Include="include\ImGui\imstb_truetype.h" />
+    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\x64\GLFW\glfw3.h" />
     <ClInclude Include="include\x64\GLFW\glfw3native.h" />
     <ClInclude Include="include\x64\GL\eglew.h" />
     <ClInclude Include="include\x64\GL\glew.h" />
     <ClInclude Include="include\x64\GL\glxew.h" />
     <ClInclude Include="include\x64\GL\wglew.h" />
+    <ClInclude Include="OpenGL.h" />
+    <ClInclude Include="Repacking.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
