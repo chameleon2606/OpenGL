@@ -26,52 +26,10 @@ void draw()
     ImGui::NewFrame();
 
 
+
     ImGui::Begin("Color", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
     ImGui::SetWindowSize(ImVec2(display_w,display_h));
-    
-    //ImGui::ColorPicker4("##Color##5", reinterpret_cast<float*>(&color), ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_NoSidePreview | ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoAlpha);
-    //red = color.x;
-    //green = color.y;
-    //blue = color.z;
-    //alpha = color.w;
-    ImGui::Text("Chameleon's texture and sound repacker");
-    ImGui::Dummy(ImVec2(0, 20));
-    
-    if (ImGui::Button("choose game folder"))
-    {
-        cout << "choosing game folder..\n";
-    }
-    ImGui::SameLine();
-    ImGui::InputText("Path", hot_file_path, IM_ARRAYSIZE(hot_file_path));
-    ImGui::Text(hot_file_path);
-
-    ImGui::Dummy(ImVec2(0,30));
-    
-    if (ImGui::RadioButton("textures", &e, 0))
-    {
-        repacking_mode = "textures";
-    }
-    if (ImGui::RadioButton("sounds", &e, 1))
-    {
-        repacking_mode = "sounds";
-    }
-    
-    ImGui::Dummy(ImVec2(0,30));
-    
-    if (ImGui::Button("Repack"))
-    {
-        repack();
-    }
-
-    ImGui::Dummy(ImVec2(0,30));
-    
-    ImGui::ProgressBar(level_progress, ImVec2(0, 0));
-    ImGui::SameLine();
-    ImGui::Text("Repack progress");
-
-    ImGui::ProgressBar(files_progress, ImVec2(0, 0));
-    ImGui::SameLine();
-    ImGui::Text("Files progress");
+    update();
     
     ImGui::End();
     ImGui::Render();
@@ -110,7 +68,6 @@ int main(void)
     ImGui_ImplOpenGL3_Init();
 
     repacking_mode = "texture";
-    init();
     
     while(!glfwWindowShouldClose(window))
     {
