@@ -114,7 +114,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)include\x64;$(ProjectDir)include\ImGui</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -239,6 +239,9 @@
     <ClInclude Include="include\x64\GL\wglew.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="Repacking.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="output\vincedata\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
